@@ -6,6 +6,98 @@
 
 // 色の設定
 $dumy: '#fff';
+.loader {
+  color: #ef562a;
+  font-size: 1.5rem;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin: 72px auto;
+  position: relative;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+}
+
+@-webkit-keyframes load6 {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+
+@keyframes load6 {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+
+@-webkit-keyframes round {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes round {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@chaset "UTF-8"
+// ===================
+// サイトの基本設定
+// ===================
+
+// 色の設定
+$dumy: '#fff';
 @chaset "UTF-8"
 // ===================
 // サイトの基本設定
@@ -69,6 +161,14 @@ input.accordion:checked ~ ul {
   .flex-col-row {
     flex-direction: row;
   }
+}
+
+.opa0 {
+  opacity: 0;
+}
+
+.opa1 {
+  opacity: 1;
 }
 
 /*
@@ -1245,6 +1345,10 @@ $dumy: '#fff';
   color: #ffd800;
 }
 
+.trouble-detail-card h1 + div {
+  transition: .5s ease-in-out;
+}
+
 .trouble-detail-card section {
   padding-bottom: 10px;
   margin-bottom: 10px;
@@ -1267,8 +1371,9 @@ $dumy: '#fff';
 }
 
 .trouble-detail-card #content, .trouble-detail-card #approach {
-  font-weight: 300;
-  font-size: 1.8rem;
+  font-weight: 100;
+  font-size: 1.5rem;
+  line-height: 135%;
 }
 
 #trouble_form_input ~ label.trouble-form-open {
@@ -1319,10 +1424,10 @@ $dumy: '#fff';
 }
 
 #trouble_form_input:checked ~ label.trouble-form-open {
-  transform: translateY(30px) rotate(135deg) scale(0.7, 0.7);
+  transform: translateY(10px) rotate(135deg) scale(0.7, 0.7);
   background: #86064e;
   box-shadow: 0px 0px 10px #303439;
-  z-index: 101;
+  z-index: 0;
 }
 
 #trouble_form_input:checked ~ .trouble-create-form {
@@ -1393,6 +1498,18 @@ $dumy: '#fff';
   border-bottom: 1px solid #e70b87;
 }
 
+.trouble-form h1 label {
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 10px;
+  transition: .3s ease-in-out;
+}
+
+.trouble-form h1 label:hover i {
+  transition: .3s ease-in-out;
+  color: #ffd800;
+}
+
 .trouble-form table {
   width: 100%;
   margin-bottom: 15px;
@@ -1449,7 +1566,7 @@ $dumy: '#fff';
   font-weight: 100;
   font-size: 1.6rem;
   width: 100%;
-  height: 6em;
+  height: 10em;
   background: rgba(201, 205, 210, 0.6);
   border: 1px solid black;
   box-shadow: 0px 0px 10px #303439;
@@ -1499,7 +1616,7 @@ $dumy: '#fff';
 	    background: rgba(black, 0);
 	    z-index: 99;
 	}
-	*/
+*/
   }
   #trouble-form-input ~ label.trouble-form-open {
     background: #b6096b;
@@ -1525,7 +1642,6 @@ $dumy: '#fff';
     font-size: 1.8rem;
     width: 50% !important;
     height: 100%;
-    max-height: 700px;
     margin: 0px auto;
     background: #303439;
     box-shadow: 0px 0px 7px #303439;
@@ -1533,6 +1649,8 @@ $dumy: '#fff';
     overflow: scroll;
   }
   .trouble-form textarea {
+    font-size: 1.4rem;
+    height: 10em;
     margin-bottom: 10px;
   }
   .trouble-form input[type="submit"] {

@@ -14,6 +14,7 @@
 	{% csrf_token %}
 	<h1>
 	    Trouble Report
+	    <label for="trouble_form_input"><i class="fas fa-times"></i></label>
 	</h1>
 	<div>
 	    <table>
@@ -86,6 +87,7 @@
 	{% csrf_token %}
 	<h1>
 	    Trouble Report
+	    <label for="update_form_input"><i class="fas fa-times"></i></label>
 	</h1>
 	<div>
 	    <table>
@@ -145,7 +147,7 @@
 		    {{ update_form.approach }}
 		</section>
 	    </div>
-	    <input type="submit" value="報告">    
+	    <input type="submit" value="編集完了">    
 	</div>
     </form>
 
@@ -164,7 +166,7 @@
 
 	    <ul>
 		{% for trouble in report.troubles %}
-		<li class="trouble-card" id="{{ trouble.pk }}">
+		<li class="trouble-card .loader" id="{{ trouble.pk }}">
 		    <div class="flex-container trouble-time">
 			<div class="container flex-container flex-col">
 			    <p><i class="far fa-clock fa-fw container"></i></p>
@@ -176,10 +178,9 @@
 			    <p>{{ trouble.occur_machine }}</p>
 			    <p>{{ trouble.trouble_user.stu_num }}</p>
 			</div>
-			<div class="flex-container">
-			    <p class="trouble-content">
-				{{ trouble.content }}
-			    </p>
+			<div class="flex-containe trouble-content">
+			    <!-- <p class="loader mx-40"></p> -->
+			    <p class="loader mx-40">{{ trouble.content }}</p>
 			</div>
 		    </div>
 		    <div class="trouble-right">
@@ -204,46 +205,48 @@
 		<p><i id="update_mark" class="fas fa-edit"></i></p>
 		<p><i id="delete_mark" class="fas fa-trash-alt"></i></p>
 	    </h1>
-	    <section class="flex-container">
-		<h2>報告者</h2>
-		<p id="reporter">
-		</p>
-	    </section>
-	    <section class="flex-container">
-		<h2>対処者</h2>
-		<p id="carer" data-carer-pk="">
-		</p>
-	    </section>
-	    <section class="flex-container" >
-		<h2>発生日時</h2>
-		<p id="occur_date" data-year="" data-mon="" data-day="" data-hour="" data-min="" data-sec="">
-		</p>
-	    </section>
-	    <section class="flex-container">
-		<h2>発生端末</h2>
-		<p id="occur_machine" data-type="" data-num="">
-		</p>
-	    </section>
-	    <section class="flex-container">
-		<h2>使用者</h2>
-		<p id="trouble_user" data-year="" data-num>
-		</p>
-	    </section>
-	    <section>
-		<h2 class="mb-10">トラブル内容</h2>
-		<p id="content">
-		</p>
-	    </section>
-	    <section>
-		<h2 class="mb-10">対処内容</h2>
-		<p id="approach">
-		</p>
-	    </section>
-	    <section class="flex-container">
-		<h2>報告日</h2>
-		<p id="report_date">
-		</p>
-	    </section>
+	    <div id="trouble_detail_card_content">
+		<section class="flex-container">
+		    <h2>報告者</h2>
+		    <p id="reporter">
+		    </p>
+		</section>
+		<section class="flex-container">
+		    <h2>対処者</h2>
+		    <p id="carer" data-carer-pk="">
+		    </p>
+		</section>
+		<section class="flex-container" >
+		    <h2>発生日時</h2>
+		    <p id="occur_date" data-year="" data-mon="" data-day="" data-hour="" data-min="" data-sec="">
+		    </p>
+		</section>
+		<section class="flex-container">
+		    <h2>発生端末</h2>
+		    <p id="occur_machine" data-type="" data-num="">
+		    </p>
+		</section>
+		<section class="flex-container">
+		    <h2>使用者</h2>
+		    <p id="trouble_user" data-year="" data-num>
+		    </p>
+		</section>
+		<section>
+		    <h2 class="mb-10">トラブル内容</h2>
+		    <p id="content">
+		    </p>
+		</section>
+		<section>
+		    <h2 class="mb-10">対処内容</h2>
+		    <p id="approach">
+		    </p>
+		</section>
+		<section class="flex-container">
+		    <h2>報告日</h2>
+		    <p id="report_date">
+		    </p>
+		</section>
+	    </div>
 	</article>
     </div>
 </div>

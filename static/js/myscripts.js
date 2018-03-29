@@ -1,4 +1,15 @@
 window.onload = function(){
+    var list = document.getElementsByClassName("trouble-content");
+    for(var i=0, len=list.length; i<len; i++){
+	var child = list[i].firstElementChild;
+	var con = child.textContent;
+	if(con.length > 45){
+	    child.textContent = con.substr(0, 40)+". . .";
+	    //document.getElementById("trouble_content_loader").classList.remove("display-none");
+	    //document.getElementById("trouble_content_loader").classList.remove("display-none");
+	}
+	child.className = "";
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -64,12 +75,16 @@ document.addEventListener("DOMContentLoaded", function(){
 			    var t_user = document.getElementById("trouble_user");
 			    t_user.dataset.year = trouble["t_u_year"];
 			    t_user.dataset.num = trouble["t_u_num"];
+			    console.log(document.getElementById("trouble_detail_card_content").classList);
+			    document.getElementById("trouble_detail_card_content").classList.remove("opa0");
+			    console.log(document.getElementById("trouble_detail_card_content").classList);
 			}
 		    } else { // 通信が失敗した時
 			console.log("failed")
 		    }
 		} else { // 通信が完了する前
 		    console.log("wait...")
+		    document.getElementById("trouble_detail_card_content").classList.add("opa0");
 		}
 	    };
 	    //xhr.open("GET", "trouble/ajax/troubledetail?pk=" + encodeURIComponent(this.id));
