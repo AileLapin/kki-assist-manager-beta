@@ -269,7 +269,6 @@ def get_trouble_detail_view(request):
             'approach': trouble.approach,
             'report_date': trouble.report_date.strftime("%Y/%m/%d %H:%M:%S"),
             }
-        print(d)
         return JsonResponse(d)
 
 

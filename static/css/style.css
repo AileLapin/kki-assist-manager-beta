@@ -1303,6 +1303,12 @@ $dumy: '#fff';
   margin-left: auto;
 }
 
+#trouble-detail-load {
+  font-size: 3.3rem;
+  color: #f648aa;
+  margin: 40px auto;
+}
+
 .trouble-detail-card {
   background: #303439;
   border-radius: 1px;
@@ -1385,13 +1391,13 @@ $dumy: '#fff';
   height: 65px;
   background: #b6096b;
   border-radius: 50%;
-  box-shadow: 0px 0px 10px black;
+  box-shadow: 0px 0px 15px black;
   cursor: pointer;
   z-index: 100;
   transition: .3s ease-in-out;
 }
 
-#trouble_form_input ~ label.trouble-form-open:hover {
+#trouble_form_input ~ label.trouble-form-open:hover, #trouble_form_input ~ label.trouble-form-open:active {
   background: #e70b87;
 }
 
@@ -1500,6 +1506,7 @@ $dumy: '#fff';
 
 .trouble-form h1 label {
   cursor: pointer;
+  padding: 0px 20px 0px 30px;
   margin-left: auto;
   margin-right: 10px;
   transition: .3s ease-in-out;
