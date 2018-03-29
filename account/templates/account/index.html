@@ -1,0 +1,13 @@
+<html>
+    <head>
+    </head>
+    <body>
+	<div>Hello World!</div>
+	<div>
+	    <form method="post" action="{% url 'account:logout' %}">
+		{% csrf_token %}
+		<input type="submit" value="logout">
+	    </form>
+	</div>
+    </body>
+</html>

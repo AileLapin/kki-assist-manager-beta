@@ -1,0 +1,11 @@
+venv
+__pycache__
+staticfiles
+local_settings.py
+db.sqlite3
+*.py[co]
+sass
+node_modules
+package.json
+gulpfile.js
+packkage-lock.json

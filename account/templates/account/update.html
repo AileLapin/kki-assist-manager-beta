@@ -1,0 +1,16 @@
+<html>
+    <head></head>
+    <body>
+	<div>update page</div>
+	<div>{{ user.username }}</div>
+
+	<form method="post" action="">
+	    {% csrf_token %}
+	    <table>
+		{{ form }}
+	    </table>
+	    
+	    <input type="submit" value="save">
+	</form>
+    </body>
+</html>
