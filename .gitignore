@@ -8,4 +8,4 @@ sass
 node_modules
 package.json
 gulpfile.js
-packkage-lock.json
+package-lock.json
