@@ -1,0 +1,20 @@
+<html>
+    <head></head>
+    <body>
+	<form method="post" action="">
+	    {% csrf_token %}
+	    <table>
+		<tr>
+		    <th>報告者</th><td>{{ user }}</td>
+		</tr>
+		{% for field in form %}
+		<tr>
+		    <th>{{ field.label_tag }}</th>
+		    <td>{{ field }}</td>
+		</tr>
+		{% endfor %}
+	    </table>
+	    <input type="submit" value="save">
+	</form>
+    </body>
+</html>

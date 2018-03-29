@@ -1,0 +1,18 @@
+<html>
+    <head></head>
+    <body>
+	<table>
+	    {% for trouble_user in trouble_users %}
+	    <tr>
+		<td>{{ trouble_user }}</td>
+		<td>
+		    <form method="post", action="{% url 'trouble:trouble_user_delete' pk=trouble_user.pk %}">
+			{% csrf_token %}
+			<button type="submit">削除</button>
+		    </form>
+		</td>
+	    </tr>
+	    {% endfor %}
+	</table>
+    </body>
+</html>

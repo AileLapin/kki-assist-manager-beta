@@ -1,0 +1,33 @@
+{% extends "trouble/base.html"%}
+
+{% block sub_title %}detail{% endblock %}
+
+{% block contents %}
+<div class="container">
+    <div class="card">
+	<div class="card-header text-center">
+	    トラブル報告書
+	</div>
+    </div>
+    <div class="list-group">
+	<li class="list-group-item">報告日時 : {{ trouble.report_date }}</li>
+	<a href="#"
+	   class="list-group-item list-group-item-action">
+	    報告者 : {{ trouble.reporter }}
+	</a>
+	<a href="#"
+	   class="list-group-item list-group-item-action">
+	    対処者　 : {{ trouble.carer }}
+	</a>
+	<li class="list-group-item">発生日時 : {{ trouble.occur_date }}</li>
+	<li class="list-group-item">報告端末 : {{ trouble.occur_machine }}</li>
+	<a href="{% url 'trouble:trouble_user_detail' pk=trouble.trouble_user.pk %}"
+	   class="list-group-item list-group-item-action">
+	    トラブルユーザ : {{ trouble.trouble_user.stu_num }}
+	</a>
+	<li class="list-group-item">トラブルカテゴリ : {{ trouble.category }}</li>
+	<li class="list-group-item">内容 : {{ trouble.content }}</li>
+	<li class="list-group-item">対処内容 : {{ trouble.approach }}</li>
+    </ul>
+</div>
+{% endblock %}

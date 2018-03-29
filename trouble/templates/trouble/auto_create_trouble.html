@@ -1,0 +1,17 @@
+<html>
+    <body>
+	<form method="post" action="">
+	    {% csrf_token %}
+	    <p>
+		<input type="checkbox" value="True" name="make_t_user">make_t_user
+	    </p>
+	    <p>
+		<input type="checkbox" value="True" name="make_trouble">make_trouble
+	    </p>
+	    <p>
+		<input type="checkbox" value="True" name="clear_trouble">clear_trouble
+	    </p>
+	    <input type="submit" value="auto create!">
+	</form>
+    </body>
+</html>

@@ -1,0 +1,250 @@
+{% extends "trouble/base.html"%}
+
+{% block sub_title %}list{% endblock %}
+
+
+
+{% block contents %}
+<input type="checkbox" id="trouble_form_input" class="check-unshown">
+<label for="trouble_form_input" class="trouble-form-open"><span><span></span></span></label>
+
+<div class="trouble-form trouble-create-form">
+    <label for="trouble_form_input" class="close-label"></label>
+    <form method="post" action="{% url 'trouble:trouble_create' %}" name="trouble_form">
+	{% csrf_token %}
+	<h1>
+	    Trouble Report
+	</h1>
+	<div>
+	    <table>
+		<tr>
+		    <th>報告者</th>
+		    <td>{{ user }}</td>
+		</tr>
+		<tr>
+		    <th>対処者</th>
+		    <td>{{ trouble_form.carer }}</td>
+		</tr>
+		<tr>
+		    <th>発生日時</th>
+		    <td>
+			<div class="flex-container">
+			    {{ trouble_form.year }}
+			    <p>年</p>
+			    {{ trouble_form.month }}
+			    <p>月</p>
+			    {{ trouble_form.day }}
+			    <p>日</p>
+			    {{ trouble_form.hour }}
+			    <p>時</p>
+			    {{ trouble_form.minute }}
+			    <p>分</p>
+			</div>
+		    </td>
+		</tr>
+		<tr>
+		    <th>発生端末</th>
+		    <td>
+			<div class="flex-container">
+			    <p>{{ trouble_form.occur_machine_type }}</p>
+			    <p>{{ trouble_form.occur_machine_num }}</p>
+			</div>
+		    </td>
+		</tr>
+		<tr>
+		    <th>使用者</th>
+		    <td>
+			<div class="flex-container">
+			    <p>T</p>
+			    <p>{{ trouble_form.trouble_user_year }}</p>
+			    <p>CS</p>
+			    <p>{{ trouble_form.trouble_user_num }}</p>
+			</div>
+		    </td>
+		</tr>
+	    </table>
+	    <div>
+		<section>
+		    <h2>トラブル内容</h2>
+		    {{ trouble_form.content }}
+		</section>
+		<section>
+		    <h2>対処内容</h2>
+		    {{ trouble_form.approach }}
+		</section>
+	    </div>
+	    <input type="submit" value="報告">    
+	</div>
+    </form>
+
+</div>
+
+<input type="checkbox" id="update_form_input" class="check-unshown">
+<div class="trouble-form trouble-update-form">
+    <label for="update_form_input" class="close-label"></label>
+    <form method="post" action="" name="update_form">
+	{% csrf_token %}
+	<h1>
+	    Trouble Report
+	</h1>
+	<div>
+	    <table>
+		<tr>
+		    <th>報告者</th>
+		    <td></td>
+		</tr>
+		<tr>
+		    <th>対処者</th>
+		    <td>{{ update_form.carer }}</td>
+		</tr>
+		<tr>
+		    <th>発生日時</th>
+		    <td>
+			<div class="flex-container">
+			    {{ update_form.year }}
+			    <p>年</p>
+			    {{ update_form.month }}
+			    <p>月</p>
+			    {{ update_form.day }}
+			    <p>日</p>
+			    {{ update_form.hour }}
+			    <p>時</p>
+			    {{ update_form.minute }}
+			    <p>分</p>
+			</div>
+		    </td>
+		</tr>
+		<tr>
+		    <th>発生端末</th>
+		    <td>
+			<div class="flex-container">
+			    <p>{{ update_form.occur_machine_type }}</p>
+			    <p>{{ update_form.occur_machine_num }}</p>
+			</div>
+		    </td>
+		</tr>
+		<tr>
+		    <th>使用者</th>
+		    <td>
+			<div class="flex-container">
+			    <p>T</p>
+			    <p>{{ update_form.trouble_user_year }}</p>
+			    <p>CS</p>
+			    <p>{{ update_form.trouble_user_num }}</p>
+			</div>
+		    </td>
+		</tr>
+	    </table>
+	    <div>
+		<section>
+		    <h2>トラブル内容</h2>
+		    {{ update_form.content }}
+		</section>
+		<section>
+		    <h2>対処内容</h2>
+		    {{ update_form.approach }}
+		</section>
+	    </div>
+	    <input type="submit" value="報告">    
+	</div>
+    </form>
+
+</div>
+
+<div class="trouble-container">
+    <div class="trouble-list-column is-center" id="trouble_list">
+
+	{% for report in reports %}
+	<section class="date-report mt-20">
+	    
+	    <h1 class="mb-10">
+		<span class="fw-300 display-inline">{{ report.date.month }}月{{ report.date.day }}日/{{ report.date.year }}年</span>
+		<span class="fw-300 display-inline ml-5">({{ report.num }})</span>
+	    </h1>
+
+	    <ul>
+		{% for trouble in report.troubles %}
+		<li class="trouble-card" id="{{ trouble.pk }}">
+		    <div class="flex-container trouble-time">
+			<div class="container flex-container flex-col">
+			    <p><i class="far fa-clock fa-fw container"></i></p>
+			    <p>{{ trouble.occur_date.hour }} : {{trouble.occur_date.minute}}</p>
+			</div>
+		    </div>
+		    <div class="trouble-main">
+			<div class="flex-container flex-col">
+			    <p>{{ trouble.occur_machine }}</p>
+			    <p>{{ trouble.trouble_user.stu_num }}</p>
+			</div>
+			<div class="flex-container">
+			    <p class="trouble-content">
+				{{ trouble.content }}
+			    </p>
+			</div>
+		    </div>
+		    <div class="trouble-right">
+			<div class="flex-container">
+			    <p><i class="fas fa-caret-right fa-fw"></i></p>
+			</div>
+		    </div>
+		</li>
+		{% endfor %}
+	    </ul>
+
+	</section>
+	{% endfor %}
+
+    </div>
+    <div class="trouble-detail-column is-right" id="trouble_detail">
+	<article class="trouble-detail-card">
+	    <h1>
+		<p>Trouble Report</p>
+		<p class="display-none" id="permission">False</p>
+		<p id="pk" class="display-none" data-pk=""></p>
+		<p><i id="update_mark" class="fas fa-edit"></i></p>
+		<p><i id="delete_mark" class="fas fa-trash-alt"></i></p>
+	    </h1>
+	    <section class="flex-container">
+		<h2>報告者</h2>
+		<p id="reporter">
+		</p>
+	    </section>
+	    <section class="flex-container">
+		<h2>対処者</h2>
+		<p id="carer" data-carer-pk="">
+		</p>
+	    </section>
+	    <section class="flex-container" >
+		<h2>発生日時</h2>
+		<p id="occur_date" data-year="" data-mon="" data-day="" data-hour="" data-min="" data-sec="">
+		</p>
+	    </section>
+	    <section class="flex-container">
+		<h2>発生端末</h2>
+		<p id="occur_machine" data-type="" data-num="">
+		</p>
+	    </section>
+	    <section class="flex-container">
+		<h2>使用者</h2>
+		<p id="trouble_user" data-year="" data-num>
+		</p>
+	    </section>
+	    <section>
+		<h2 class="mb-10">トラブル内容</h2>
+		<p id="content">
+		</p>
+	    </section>
+	    <section>
+		<h2 class="mb-10">対処内容</h2>
+		<p id="approach">
+		</p>
+	    </section>
+	    <section class="flex-container">
+		<h2>報告日</h2>
+		<p id="report_date">
+		</p>
+	    </section>
+	</article>
+    </div>
+</div>
+{% endblock %}
