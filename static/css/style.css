@@ -1304,9 +1304,13 @@ $dumy: '#fff';
 }
 
 #trouble-detail-load {
+  position: absolute;
+  top: 20%;
+  left: 50%;
   font-size: 3.3rem;
   color: #f648aa;
   margin: 40px auto;
+  transition: .3s ease-in-out;
 }
 
 .trouble-detail-card {

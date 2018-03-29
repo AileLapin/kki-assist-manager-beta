@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			    var t_user = document.getElementById("trouble_user");
 			    t_user.dataset.year = trouble["t_u_year"];
 			    t_user.dataset.num = trouble["t_u_num"];
-			    document.getElementById("trouble-detail-load").classList.add("display-none");
+			    //document.getElementById("trouble-detail-load").classList.add("display-none");
 			    document.getElementById("trouble_detail_card_content").classList.remove("opa0");
 			}
 		    } else { // 通信が失敗した時
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		    }
 		} else { // 通信が完了する前
 		    console.log("wait...")
-		    document.getElementById("trouble-detail-load").classList.remove("display-none");
+		    //document.getElementById("trouble-detail-load").classList.remove("display-none");
 		    document.getElementById("trouble_detail_card_content").classList.add("opa0");
 		}
 	    };
