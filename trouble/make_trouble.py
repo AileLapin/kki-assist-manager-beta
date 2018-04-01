@@ -58,7 +58,7 @@ def make_recent_trouble(length=7):
                 reporter=reporter[j],
                 carer=reporter[(i % 2)],
                 occur_date=time,
-                occur_machine='{0}0{1}'.format(machine[j], i),
+                occur_machine='{0}0{1}'.format(machine[j], (i+1)),
                 trouble_user=t_user,
                 content='sample',
                 approach='sample',
@@ -79,7 +79,8 @@ def trouble_user_clear():
 
 def trouble_clear():
     for trouble in Trouble.objects.all():
-        trouble.delete()
+        print(trouble)
+        manager.trouble_delete(trouble)
     print('success!')
 
 

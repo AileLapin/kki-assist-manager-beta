@@ -132,7 +132,9 @@ class TroubleDeleteView(LoginRequiredMixin, PermissionRequiredMixin,
 
     def delete(self, request, *args, **kwargs):
         trouble = self.get_object()
-        manager.trouble_delete(trouble)
+        report = trouble.troubledatereport_set.all().first()
+        report.num -= 1
+        report.save()
         return super().delete(request, *args, **kwargs)
 
     def get_success_url(self):
@@ -292,6 +294,9 @@ def auto_create_trouble_view(request):
 
             if request.POST.get('make_recent_trouble'):
                 make_trouble.make_recent_trouble()
+
+            if request.POST.get('report_clear'):
+                make_trouble.report_clear()
                 
             return HttpResponseRedirect(reverse('trouble:trouble_list'))
         else:

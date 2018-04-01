@@ -2119,23 +2119,23 @@ $dumy: '#fff';
 
 .trouble-form input[type="submit"] {
   display: block;
-  background: rgba(95, 103, 112, 0.9);
+  background: radial-gradient(#303439, rgba(24, 26, 29, 0.7));
   color: #fff;
   font-size: 1.5rem;
-  width: 25%;
-  height: 7%;
+  width: 90%;
+  height: auto;
   border-radius: 4px;
-  border: 1px solid #303439;
-  box-shadow: 0px 0px 7px #303439;
-  padding: 4px;
+  border: 1px solid #770645;
+  padding: 10px;
   margin: 20px auto 40px auto;
   cursor: pointer;
   transition: .2s ease-in-out;
 }
 
 .trouble-form input[type="submit"]:hover {
-  background: #e70b87;
-  box-shadow: 0px 0px 3px #e70b87;
+  background: radial-gradient(#191b1d, rgba(24, 26, 29, 0.7));
+  border: 1px solid #a80861;
+  box-shadow: 0px 0px 3px rgba(47, 51, 57, 0.7);
 }
 
 .trouble-form input[type="submit"]:active {
@@ -2203,14 +2203,6 @@ $dumy: '#fff';
     font-size: 1.3rem !important;
     height: 10em;
     margin-bottom: 10px;
-  }
-  .trouble-form input[type="submit"] {
-    background: #474d55;
-    box-shadow: 0px 0px 3px;
-  }
-  .trouble-form input[type="submit"]:hover {
-    background: black;
-    box-shadow: 0px 0px 1px #e70b87;
   }
   .trouble-delete-form p {
     border-bottom: 1px solid #5f6770;

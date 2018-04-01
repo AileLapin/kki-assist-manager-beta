@@ -34,6 +34,7 @@ def add_trouble_to_report(trouble):
 def trouble_delete(trouble):
     report = trouble.troubledatereport_set.all().first()
     report.num -= 1
+    trouble.delete()
     report.save()
 
 
