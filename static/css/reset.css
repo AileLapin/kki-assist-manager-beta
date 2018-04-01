@@ -27,6 +27,7 @@ time, mark, audio, video {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+    font-weight: 100;
 }
 
 body {
@@ -144,4 +145,10 @@ input, button, textarea, select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    -webkit-transition: background-color 9999s;
+    transition: background-color 9999s;
 }

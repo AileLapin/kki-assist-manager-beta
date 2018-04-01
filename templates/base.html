@@ -7,74 +7,16 @@
 	</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0">
-	<!--  
-	     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	-->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700" rel="stylesheet">
+	<meta name="theme-color" content="#2e021b">
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,400|Roboto:100,100i,300,300i,400,400i,500,500i,700" rel="stylesheet">
+
 	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-	<link rel="stylesheet" href="../static/css/reset.css">
-	<link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="/static/css/reset.css">
+	<link rel="stylesheet" href="/static/css/style.css">
     </head>
     <body class="body-container">
-	<nav>
-	    <input id="nav-input" type="checkbox" class="check-unshown">
-	    <label class="nav-close check-unshown" for="nav-input"></label>
-	    <div class="nav-content">
-		<h1><span>KKI-Assist Manager</span></h1>
-		<ul class="nav-menu">
-		    <li>
-			<a href="{% url 'trouble:trouble_list' %}"><i class="fas fa-home fa-fw nav-fas"></i>Home</a>
-		    </li>
-		    <li>
-			<a href="#"><i class="fas fa-user fa-fw nav-fas"></i>MyPage</a>
-		    </li>
-		    <li>
-			<input id="trouble-accordion" type="checkbox" class="check-unshown accordion">
-			<label for="trouble-accordion"><i class="fas fa-file-alt fa-fw nav-fas"></i>Trouble</label>
-			<ul>
-			    <li><a href="{% url 'trouble:trouble_list' %}">Log<i class="fas fa-caret-right fa-fw"></i></a></li>
-			    <li><a href="#">Report<i class="fas fa-caret-right fa-fw"></i></a></li>
-			    <li><a href="#">Trouble User<i class="fas fa-caret-right fa-fw"></i></a></li>
-			    <li><a href="#">Category<i class="fas fa-caret-right fa-fw"></i></a></li>
-			</ul>
-		    </li>
-		    <li>
-			<a href="#"><i class="fas fa-inbox fa-fw nav-fas"></i>Drop</a>
-		    </li>
-		    <li>
-			<a href="#"><i class="fas fa-chart-bar fa-fw nav-fas"></i>Metting</a>
-		    </li>
-		    <li>
-			<a href="#"><i class="fas fa-users fa-fw nav-fas"></i>Users</a>
-		    </li>
-		    <li>
-			<a href="#"><i class="fas fa-book fa-fw nav-fas"></i>Book</a>
-		    </li>
-		    <li>
-			<a href="#"><i class="fas fa-cog fa-fw nav-fas"></i>Setting</a>
-		    </li>
-		    <li class="logout">
-			<a href="#"><i class="fas fa-sign-out-alt fa-fw nav-fas"></i>Logout</a>
-		    </li>
-		</ul>
-	    </div>
-	</nav>
-	<main>
-	    <header>
-		<div class="flex-container">
-		    <button type="button" id="hamburger-menu"><span></span></button>
-		    <button type="button" id="back"><i class="fas fa-arrow-left"></i></button>
-		</div>
-	    </header>
-	    <div class="main-container">
-		{% block contents %}{% endblock %}
-	    </div>
-	</main>
-	<!-- 
-	     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	-->
+	{% block body%}
+	{% endblock %}
 	<script src="/static/js/myscripts.js"></script>
     </body>
 </html>

@@ -134,7 +134,7 @@ AUTH_USER_MODEL = 'account.MyUser'
 LOGIN_ERROR_URL = 'account:login'
 LOGIN_URL = 'account:login'
 LOGOUT_REDIRECT_URL = 'account:login'
-LOGIN_REDIRECT_URL = 'account:index'
+LOGIN_REDIRECT_URL = 'trouble:trouble_list'
 
 
 DATABASES['default'] = dj_database_url.config()

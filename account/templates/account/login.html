@@ -1,16 +1,46 @@
-<html>
-    <head></head>
-    <body>
-	<div>login page</div>
-
+{% extends "base.html" %}
+{% block title %}KKI-Assist Manager{% block sub_title %}{% endblock %}{% endblock %}
+{% block body %}
+<div class="login-container">
+    {% if form.username.value %}
+    <input type="checkbox" id="login_btn" checked="checked">
+    {% else %}
+    <input type="checkbox" id="login_btn">
+    {% endif %}
+    <div class="welcome">
+	<h1>KKI-Assist Manager<hr></h1>
+	{% if form.username.value %}
+	<p>Student number or Password is wrong!</p>
+	{% else %}
+	<p></p>
+	{% endif %}
 	<form method="post" action="{% url 'account:login' %}">
-	      {% csrf_token %}
-	    <table>
-		{{ form }}
-	    </table>
-	    
-	    <input type="submit" value="login">
-	    <input type="hidden" name="next" value="{{ next }}">
+	    {% csrf_token %}
+	    <div class="flex-container login-row">
+		<label for="id_username"><i class="far fa-user fa-fw"></i></label>
+		{{ form.username }}
+		<label for="id_username" class="w-100 h-100"></lable>
+	    </div>
+	    <hr>
+	    <div class="flex-container login-row">
+		<label for="id_password"><i class="fas fa-lock fa-fw"></i></label>
+		{{ form.password }}
+		<label for="id_password" class="w-100 h-100"></label>
+	    </div>
+	    <hr>
+	    <div class="flex-container login-btn">
+		<button type="submit"><i class="fas fa-sign-in-alt"></i>Login</button>
+	    </div>
 	</form>
-    </body>
-</html>
+
+    </div>
+    <div class="flex-center-container">
+	<label for="login_btn" class="center-login-label">
+	    <div>
+		<i class="fas fa-lock fa-fw"></i>
+	    </div>
+	</label>
+    </div>    
+    
+</div>{% endblock %}
+

@@ -4,6 +4,7 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from account.models import MyUser
+from .forms import LoginForm
 
 
 class Index(LoginRequiredMixin, generic.TemplateView):
@@ -12,6 +13,7 @@ class Index(LoginRequiredMixin, generic.TemplateView):
 
 class MyLoginView(LoginView):
     template_name = 'account/login.html'
+    form_class = LoginForm
 
 
 class MyLogoutView(LogoutView):
@@ -23,6 +25,7 @@ class MyAccountUpdate(LoginRequiredMixin, generic.edit.UpdateView):
     fields = ('last_name', 'first_name', 'nickname')
     template_name = 'account/update.html'
     user = None  # ログインしているユーザオブジェクトを格納
+    success_url = 'account:login'
 
     def get(self, request, *args, **kwargs):
         self.user = request.user  # アクセスしてきたユーザを格納
@@ -33,7 +36,7 @@ class MyAccountUpdate(LoginRequiredMixin, generic.edit.UpdateView):
         return super().post(request, *args, **kwargs)
 
     def get_success_url(self):
-        return reverse('account:index')
+        return reverse('accout:login')
 
     def get_object(self, queryset=None):
         try:
@@ -94,3 +97,6 @@ class UserUpdate(LoginRequiredMixin, generic.edit.UpdateView):
 
 class PasswordChangeView(PasswordChangeView):
     template_name = 'account/password_change.html'
+
+    def get_success_url(self):
+        return reverse('account:login')

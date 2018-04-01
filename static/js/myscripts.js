@@ -142,6 +142,38 @@ document.addEventListener("DOMContentLoaded", function(){
 	    console.log("False!");
 	}
     }, false);
+    // trouble delete form
+    document.getElementById("delete_mark").addEventListener("click", function(){
+	var permission = document.getElementById("permission").textContent;
+
+	if(permission === "True"){
+	    // 必要なデータを取り出しておく
+	    var pk = document.getElementById("pk").textContent;
+	    var url = "/trouble/delete/" + pk;
+	    var form = document.forms.delete_form;
+	    // formのアクションをセット
+	    form.action = url
+
+	    // forで回せるようにaryに名前を格納しておく．
+	    var ary = Array("reporter", "carer", "occur_date",
+			    "occur_machine", "trouble_user");
+	    var td_list = document.querySelectorAll("#trouble_delete_form td");
+	    var p_list = document.querySelectorAll("#trouble_delete_form section p");
+
+	    for(var i=0, len=td_list.length; i<len; i++){
+		td_list[i].textContent = document.getElementById(ary[i]).textContent;
+	    }
+	    
+	    p_list[0].textContent = document.getElementById("content").textContent;
+	    p_list[1].textContent = document.getElementById("approach").textContent;
+	    document.getElementById("delete_form_input").checked = true;
+	    console.log(document.getElementById("delete_form_input").checked);
+	}else{
+	    console.log("False!");
+	}
+
+    }, false);
+    
 
     
 }, false);

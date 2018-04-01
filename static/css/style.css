@@ -91,6 +91,88 @@ $dumy: '#fff';
   }
 }
 
+.sk-cube-grid {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+}
+
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: #fff;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
+}
+
 @chaset "UTF-8"
 // ===================
 // サイトの基本設定
@@ -105,6 +187,10 @@ $dumy: '#fff';
 
 // 色の設定
 $dumy: '#fff';
+/*
+ * Mixin for placeholder
+ * @include placeholderColor(#00ff00);
+ */
 .display-none {
   display: none;
 }
@@ -133,6 +219,15 @@ i.fas {
   align-items: stretch;
 }
 
+.flex-center-container {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -145,10 +240,6 @@ input.accordion ~ ul {
   height: 0px;
   opacity: 0;
   transition: .3s ease-in-out;
-}
-
-input.accordion ~ ul * {
-  display: none;
 }
 
 input.accordion:checked ~ ul {
@@ -169,6 +260,18 @@ input.accordion:checked ~ ul {
 
 .opa1 {
   opacity: 1;
+}
+
+.close-label {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: transparent;
+  z-index: 0;
 }
 
 /*
@@ -1202,6 +1305,10 @@ padding => pt-*, pb-*, pl-*, pr-*, px-*, py-*
 
 // 色の設定
 $dumy: '#fff';
+/*
+ * Mixin for placeholder
+ * @include placeholderColor(#00ff00);
+ */
 @chaset "UTF-8"
 // ===================
 // サイトの基本設定
@@ -1209,6 +1316,417 @@ $dumy: '#fff';
 
 // 色の設定
 $dumy: '#fff';
+.login-container {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  /*
+    background:{
+	image: url("/static/img/assist-manager-backimg.jpg");
+	position: center center;
+	repeat: no-repeat;
+	attachment: fixed;
+	size: cover;
+	//color: radial-gradient(lighten($gray, 15%), $gray);
+    }
+    */
+  background: radial-gradient(#2e021b, black);
+}
+
+.welcome {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+
+.welcome h1 {
+  position: relative;
+  font-weight: 100;
+  font-size: 2.5rem;
+  text-align: center;
+  text-shadow: 0px 0px 3px;
+  margin: 100px auto 0px;
+  transition: .3s ease-in-out;
+}
+
+.welcome h1 hr {
+  position: relative;
+  top: 10px;
+  height: 1px;
+  background: linear-gradient(to left, #16010d, #770645, #16010d);
+  transform: scaleX(1.5);
+}
+
+.welcome > .container {
+  margin-top: 100px;
+}
+
+.welcome p {
+  margin: 40px auto 20px;
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+.welcome form {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  padding: 10px 15% 10px;
+  opacity: 0;
+  z-index: 0;
+  transition: .5s ease-in-out;
+}
+
+.center-login-label {
+  position: relative;
+  top: 10%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0px auto;
+  background: radial-gradient(#2e021b, black);
+  opacity: 0.8;
+  border: 1px solid #460429;
+  border-radius: 3px;
+  box-shadow: 0px 0px 3px black;
+  transform: rotate(45deg);
+  cursor: pointer;
+  transition: .3s ease-in-out;
+  z-index: 50;
+}
+
+.center-login-label:hover {
+  background: radial-gradient(#5f0537, #2e021b);
+  border: 1px solid #b6096b;
+  box-shadow: 0px 0px 10px #770645;
+  transform: rotate(45deg);
+}
+
+.center-login-label:hover i {
+  color: #ffd800;
+  text-shadow: 0px 0xp 3px #770645;
+}
+
+.center-login-label:active {
+  background: radial-gradient(#460429, #16010d);
+  border: 1px solid #770645;
+  box-shadow: 0px 0px 3px #770645;
+  transform: rotate(45deg) scale(1.5, 1.5);
+}
+
+.center-login-label:active i {
+  color: #ffd800;
+}
+
+.center-login-label div {
+  transform: rotate(-45deg);
+  margin: 0px auto;
+}
+
+.center-login-label div i {
+  color: #fff;
+  font-size: 2rem;
+  text-shadow: 0px 0px 3px #770645;
+  transition: .3s ease-in-out;
+}
+
+.login-row {
+  display: flex;
+  align-items: center;
+  height: 45px;
+  margin: 20px 0px 5px;
+}
+
+.login-row label {
+  cursor: pointer;
+}
+
+.login-row i {
+  color: #fef3f9;
+  font-size: 1.8rem;
+  text-shadow: 0px 0px 1px #770645;
+  margin-right: 30px;
+}
+
+.login-row input[type="text"], .login-row input[type="password"] {
+  width: 10em;
+  height: 100%;
+  color: #fef3f9;
+  font-size: 1.8rem;
+  font-weight: 100;
+  background: transparent;
+}
+
+.login-row input[type="text"]:placeholder-shown, .login-row input[type="password"]:placeholder-shown {
+  color: rgba(254, 243, 249, 0.7);
+}
+
+.login-row input[type="text"]::-webkit-input-placeholder, .login-row input[type="password"]::-webkit-input-placeholder {
+  color: rgba(254, 243, 249, 0.7);
+}
+
+.login-row input[type="text"]:-moz-placeholder, .login-row input[type="password"]:-moz-placeholder {
+  color: rgba(254, 243, 249, 0.7);
+  opacity: 1;
+}
+
+.login-row input[type="text"]::-moz-placeholder, .login-row input[type="password"]::-moz-placeholder {
+  color: rgba(254, 243, 249, 0.7);
+  opacity: 1;
+}
+
+.login-row input[type="text"]:-ms-input-placeholder, .login-row input[type="password"]:-ms-input-placeholder {
+  color: rgba(254, 243, 249, 0.7);
+}
+
+.login-row input[type="text"]:focus:placeholder-shown, .login-row input[type="password"]:focus:placeholder-shown {
+  color: rgba(254, 243, 249, 0.3);
+}
+
+.login-row input[type="text"]:focus::-webkit-input-placeholder, .login-row input[type="password"]:focus::-webkit-input-placeholder {
+  color: rgba(254, 243, 249, 0.3);
+}
+
+.login-row input[type="text"]:focus::-moz-placeholder, .login-row input[type="password"]:focus::-moz-placeholder {
+  color: rgba(254, 243, 249, 0.3);
+}
+
+.login-row input[type="text"]:focus:-ms-input-placeholder, .login-row input[type="password"]:focus:-ms-input-placeholder {
+  color: rgba(254, 243, 249, 0.3);
+}
+
+.login-row input[type="text"]:focus::-ms-input-placeholder, .login-row input[type="password"]:focus::-ms-input-placeholder {
+  color: rgba(254, 243, 249, 0.3);
+}
+
+.login-row input[type="text"]:-webkit-autofill, .login-row input[type="password"]:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px #2e021b inset;
+  transition: 9999s 9999s;
+}
+
+.login-row + hr {
+  height: 1px;
+  width: 70%;
+  background: linear-gradient(to left, #333333, #b3b3b3, #333333);
+  margin: 0px auto;
+  transform: scaleX(1.5);
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  height: 45px;
+  width: 50%;
+  margin: 50px auto;
+}
+
+.login-btn button {
+  font-size: 1.8rem;
+  font-weight: 100;
+  background: radial-gradient(#460429, #16010d);
+  border: 1px solid #770645;
+  box-shadow: 0px 0px 3px #770645;
+  transition: .2s ease-in-out;
+}
+
+.login-btn button:hover {
+  background: radial-gradient(#5f0537, #2e021b);
+  border: 1px solid #b6096b;
+  box-shadow: 0px 0px 10px #770645;
+}
+
+.login-btn button:hover i {
+  text-shadow: 0px 0xp 3px;
+}
+
+.login-btn button:active {
+  background: radial-gradient(#460429, #16010d);
+  border: 1px solid #770645;
+  box-shadow: 0px 0px 3px #770645;
+}
+
+.login-btn button:active i {
+  color: #ffd800;
+}
+
+.login-btn i {
+  margin-right: 20px;
+}
+
+#login_btn:checked ~ .flex-center-container .center-login-label {
+  opacity: 0;
+  z-index: 0;
+}
+
+#login_btn:checked ~ .flex-center-container .center-login-label i {
+  display: none;
+  opacity: 0;
+}
+
+#login_btn:checked ~ .welcome {
+  z-index: 100;
+}
+
+#login_btn:checked ~ * form {
+  opacity: 1;
+  z-index: 50;
+}
+
+@media only screen and (min-width: 960px) {
+  .welcome form {
+    width: 65%;
+  }
+  .center-login-label {
+    background: radial-gradient(#460429, #16010d);
+    border: 1px solid #770645;
+    box-shadow: 0px 0px 3px #770645;
+  }
+}
+
+@chaset "UTF-8"
+// ===================
+// サイトの基本設定
+// ===================
+
+// 色の設定
+$dumy: '#fff';
+@chaset "UTF-8"
+// ===================
+// サイトの基本設定
+// ===================
+
+// 色の設定
+$dumy: '#fff';
+/*
+ * Mixin for placeholder
+ * @include placeholderColor(#00ff00);
+ */
+.pass-change-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 5% 5%;
+  margin: 0 auto auto;
+  background: #303439;
+  box-shadow: 1px 1px 7px black;
+  overflow: scroll;
+}
+
+.pass-change-card h1 {
+  font-size: 2rem;
+  font-weight: 100;
+  padding-bottom: 10px;
+}
+
+.pass-change-card h1 + hr {
+  height: 1px;
+  background: #e70b87;
+  box-shadow: 0px 0px 5px #474d55;
+  margin-bottom: 20px;
+}
+
+.pass-change-card ul li {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.pass-change-card ul li::before {
+  content: '*';
+  color: #e70b87;
+  margin-right: 10px;
+}
+
+.pass-change-card ul + hr {
+  height: 1px;
+  background: #777777;
+  margin-bottom: 20px;
+}
+
+.pass-change-card .form-group {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #777777;
+}
+
+.pass-change-card .form-group label {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.pass-change-card .form-group input {
+  width: 90%;
+  max-width: 400px;
+  padding: 5px 10px;
+  font-size: 1.5rem;
+  color: #fff;
+  border-radius: 1px;
+  background: #5f5f5f;
+  box-shadow: 0px 0px 3px #5f5f5f;
+}
+
+.pass-change-card form div:nth-of-type(2) {
+  border-bottom: none;
+  margin-bottom: 5px;
+}
+
+.pass-change-card button {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  font-size: 1.6rem;
+  font-weight: 300;
+  background: radial-gradient(#303439, rgba(24, 26, 29, 0.7));
+  border: 1px solid #770645;
+  transition: .2s ease-in-out;
+}
+
+.pass-change-card button:hover {
+  background: radial-gradient(#191b1d, rgba(24, 26, 29, 0.7));
+  border: 1px solid #a80861;
+  box-shadow: 0px 0px 3px rgba(47, 51, 57, 0.7);
+  text-shadow: 0px 0px 1px;
+}
+
+@media only screen and (min-width: 960px) {
+  .pass-change-card {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    margin: 5% auto;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .pass-change-card {
+    margin-top: 3%;
+    margin-left: 10%;
+  }
+}
+
+@chaset "UTF-8"
+// ===================
+// サイトの基本設定
+// ===================
+
+// 色の設定
+$dumy: '#fff';
+@chaset "UTF-8"
+// ===================
+// サイトの基本設定
+// ===================
+
+// 色の設定
+$dumy: '#fff';
+/*
+ * Mixin for placeholder
+ * @include placeholderColor(#00ff00);
+ */
 .trouble-container {
   position: fixed;
   top: 10%;
@@ -1273,6 +1791,10 @@ $dumy: '#fff';
   text-shadow: 0px 0px 3px;
 }
 
+.date-report:last-child {
+  margin-bottom: 30px;
+}
+
 .trouble-time {
   flex: 0 0 auto;
   display: flex;
@@ -1315,8 +1837,8 @@ $dumy: '#fff';
 
 .trouble-detail-card {
   background: #303439;
-  border-radius: 1px;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  border: 1px solid #191b1d;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   color: #fff;
   padding: 20px 15px;
   margin-top: 10px;
@@ -1456,6 +1978,16 @@ $dumy: '#fff';
   opacity: 1;
 }
 
+#delete_form_input:checked ~ .trouble-delete-form {
+  opacity: 1;
+  transition: opacity .3s ease-in-out;
+  z-index: 9999;
+}
+
+#delete_form_input:checked ~ .trouble-delete-form label {
+  opacity: 1;
+}
+
 .trouble-form .close-label {
   display: block;
   position: absolute;
@@ -1476,7 +2008,7 @@ $dumy: '#fff';
   height: 100%;
   width: 100%;
   padding: 30px 10px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   opacity: 0;
   transition: opacity .3s ease-in-out;
   overflow: scroll;
@@ -1610,6 +2142,14 @@ $dumy: '#fff';
   background: #86064e;
 }
 
+.trouble-delete-form p {
+  font-size: 1.5rem;
+  font-weight: 100;
+  line-height: 135%;
+  padding: 5px 0px 10px;
+  border-bottom: 1px solid #303439;
+}
+
 @media only screen and (min-width: 700px) {
   .trouble-main {
     margin-left: 30px;
@@ -1660,7 +2200,7 @@ $dumy: '#fff';
     overflow: scroll;
   }
   .trouble-form textarea {
-    font-size: 1.4rem;
+    font-size: 1.3rem !important;
     height: 10em;
     margin-bottom: 10px;
   }
@@ -1671,6 +2211,9 @@ $dumy: '#fff';
   .trouble-form input[type="submit"]:hover {
     background: black;
     box-shadow: 0px 0px 1px #e70b87;
+  }
+  .trouble-delete-form p {
+    border-bottom: 1px solid #5f6770;
   }
   .trouble-container {
     display: flex;
@@ -1717,9 +2260,13 @@ $dumy: '#fff';
 @media only screen and (min-width: 1200px) {
   .trouble-container {
     width: 85%;
+    margin: 0px auto;
   }
   .trouble-create {
     width: 85%;
+  }
+  .trouble-form form {
+    width: 40% !important;
   }
 }
 
@@ -1730,6 +2277,10 @@ $dumy: '#fff';
 
 // 色の設定
 $dumy: '#fff';
+/*
+ * Mixin for placeholder
+ * @include placeholderColor(#00ff00);
+ */
 @chaset "UTF-8"
 // ===================
 // サイトの基本設定
@@ -1749,17 +2300,25 @@ a, label, button {
 }
 
 html {
+  width: 100%;
+  height: 100%;
   font-size: 62.5%;
 }
 
 body {
+  width: 100%;
+  height: 100%;
   position: relative;
   color: #fff;
   font-size: 1.4rem;
   font-family: 'Roboto', 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
-  background: rgba(0, 0, 0, 0.6);
+  background: radial-gradient(#777777, #5f5f5f);
   font-weight: 300;
   overflow-y: hidden;
+}
+
+nav {
+  z-index: 10;
 }
 
 .check-unshown {
@@ -1794,7 +2353,7 @@ body {
 
 .nav-content {
   font-weight: 100;
-  background: #303439;
+  background: #1a1e24;
   overflow: auto;
   position: fixed;
   top: 0;
@@ -1809,22 +2368,30 @@ body {
 }
 
 .nav-content h1 {
+  display: flex;
+  align-items: center;
   font-size: 2rem;
   color: #fff;
   font-weight: 300;
   text-align: center;
   padding: 30px 0px;
-  margin-bottom: 20px;
   background: #1a1e24;
   text-shadow: 0px 0px 1px;
   box-shadow: 0px 0px 3px #86064e;
 }
 
+ul.nav-menu {
+  background: rgba(48, 52, 57, 0.9);
+  padding-top: 20px;
+  box-shadow: 0px 2px 3px -2px #86064e inset;
+}
+
 ul.nav-menu a, ul.nav-menu label {
+  background: transparent;
   font-size: 1.8rem;
   padding: 10px 0px 10px 20px;
   cursor: pointer;
-  transition: .3s;
+  transition: .3s ease-in-out;
 }
 
 ul.nav-menu a:hover, ul.nav-menu label:hover {
@@ -1843,7 +2410,13 @@ ul.nav-menu a:active, ul.nav-menu label:active {
 
 ul.nav-menu input.accordion ~ ul {
   margin-left: 40px;
-  transition: .3 ease-in-out;
+  transition: opacity .3s ease-in-out;
+}
+
+ul.nav-menu input.accordion ~ ul li, ul.nav-menu input.accordion ~ ul a {
+  display: none;
+  height: 0;
+  opacity: 0;
 }
 
 ul.nav-menu input.accordion:checked ~ label {
@@ -1852,22 +2425,28 @@ ul.nav-menu input.accordion:checked ~ label {
 }
 
 ul.nav-menu input.accordion:checked ~ ul {
+  height: auto;
   margin-left: 40px;
   margin-bottom: 10px;
   background: #474d55;
   box-shadow: -1px 1px 1px -1px #e70b87;
-  transition: .3s ease-in-out;
+  transition: opacity .3s ease-in-out;
 }
 
 ul.nav-menu input.accordion:checked ~ ul li {
   display: block;
   height: auto;
+  opacity: 1;
+  transition: opacity .3s ease-in-out;
 }
 
 ul.nav-menu input.accordion:checked ~ ul a {
+  height: auto;
   display: block;
   font-size: 1.5rem;
   padding: 10px 0px 10px 20px;
+  opacity: 1;
+  transition: opacity .3s ease-in-out;
 }
 
 ul.nav-menu input.accordion:checked ~ ul a:hover {
@@ -1886,6 +2465,18 @@ ul.nav-menu input.accordion:checked + label::after {
   content: ' -';
   color: #ffd800;
   font-size: 1.7rem;
+}
+
+.now-development {
+  box-shadow: 0px -2px 3px -2px #550432;
+  background: #1a1e24;
+  margin-top: 30px;
+}
+
+.now-development h2 {
+  padding: 15px 0px 10px 15px;
+  font-weight: 100;
+  font-size: 1.4rem;
 }
 
 header {
@@ -1991,6 +2582,43 @@ main {
   transform: translateX(-105%);
 }
 
+.logout-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 0;
+}
+
+.logout-card {
+  width: 90%;
+  height: 50%;
+  background: #303439;
+  border-radius: 3px;
+  padding: 10px 5px;
+  margin: 0px auto;
+  opacity: 0;
+  transform: translateY(-20%);
+}
+
+#logout_checkbox:checked ~ .logout-container {
+  opacity: 1;
+  z-index: 10000;
+}
+
+#logout_checkbox:checked ~ .logout-container .close-label {
+  z-index: 10001;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+}
+
+#logout_checkbox:checked ~ .logout-container .logout-card {
+  z-index: 10002;
+  opacity: 1;
+}
+
 @media only screen and (min-width: 960px) {
   .body-container {
     display: flex;
@@ -2014,6 +2642,9 @@ main {
     display: block;
     height: 100%;
     transform: translateY(40%);
+  }
+  .logout-card {
+    width: 40%;
   }
   main {
     flex: 1 1 auto;

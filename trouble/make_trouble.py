@@ -47,6 +47,30 @@ def make_trouble():
     print('success!')
 
 
+def make_recent_trouble(length=7):
+    reporter = MyUser.objects.exclude(is_staff=True)
+    machine = ['dw', 'ew', 'fw']
+    for i in range(0, length):
+        t_user = TroubleUser.objects.all()[i]
+        for j in range(0, 3):
+            time = datetime.now()-timedelta(days=i, hours=j*3)
+            trouble = Trouble(
+                reporter=reporter[j],
+                carer=reporter[(i % 2)],
+                occur_date=time,
+                occur_machine='{0}0{1}'.format(machine[j], i),
+                trouble_user=t_user,
+                content='sample',
+                approach='sample',
+                report_date=datetime.now()-timedelta(days=i)
+                )
+            trouble.save()
+            manager.add_trouble_to_report(trouble)
+            print(trouble)
+
+    print('success!')
+
+
 def trouble_user_clear():
     for user in TroubleUser.objects.all():
         user.delete()

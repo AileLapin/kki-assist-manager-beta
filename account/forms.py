@@ -1,6 +1,12 @@
 from django import forms
-from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.contrib.auth.forms import ReadOnlyPasswordHashField, AuthenticationForm
 from account.models import MyUser
+
+class LoginForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['placeholder'] = 'Student Number'
+        self.fields['password'].widget.attrs['placeholder'] = 'Password'
 
 
 class UserCreationForm(forms.ModelForm):

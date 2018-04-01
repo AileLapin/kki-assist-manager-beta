@@ -106,7 +106,8 @@ class TroubleUpdateView(LoginRequiredMixin, PermissionRequiredMixin,
         return kwargs
 
     def get_success_url(self):
-        return reverse('trouble:trouble_detail', kwargs={'pk': self.kwargs.get(self.pk_url_kwarg)})
+        # return reverse('trouble:trouble_detail', kwargs={'pk': self.kwargs.get(self.pk_url_kwarg)})
+        return reverse('trouble:trouble_list')
 
 
 class TroubleDeleteView(LoginRequiredMixin, PermissionRequiredMixin,
@@ -274,6 +275,8 @@ def get_trouble_detail_view(request):
 
 @login_required
 def auto_create_trouble_view(request):
+    # sampleを追加するview
+    # superuserのみ解放
     if request.user.is_superuser:
         if request.method == 'GET':
             return render(request, 'trouble/auto_create_trouble.html')
@@ -286,6 +289,9 @@ def auto_create_trouble_view(request):
             
             if request.POST.get('clear_trouble'):
                 make_trouble.trouble_clear()
+
+            if request.POST.get('make_recent_trouble'):
+                make_trouble.make_recent_trouble()
                 
             return HttpResponseRedirect(reverse('trouble:trouble_list'))
         else:
