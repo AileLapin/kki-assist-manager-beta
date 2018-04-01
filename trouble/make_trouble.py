@@ -34,7 +34,7 @@ def make_trouble():
                 reporter=reporter[j],
                 carer=reporter[j],
                 occur_date=time,
-                occur_machine='{0}0{1}'.format(machine[j], j),
+                occur_machine='{0}0{1}'.format(machine[j], (j+1)),
                 trouble_user=t_user,
                 content='sample',
                 approach='sample',
