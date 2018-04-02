@@ -38,8 +38,6 @@ class TroubleListView(LoginRequiredMixin, generic.TemplateView):
         delta = self.request.GET.get(key="delta", default="latest")
         now = datetime.now()
         context = super().get_context_data(**kwargs)
-
-        context['yobi'] = yobi
         context['delta'] = str_delta[delta]
         context['reports'] = manager.get_troubles(self.request)
         context['trouble_form'] = forms.TroubleForm(initial={
