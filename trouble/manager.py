@@ -3,7 +3,6 @@ Trouble一覧の取得やそのソート，検索に使う．
 '''
 
 from datetime import datetime, date, timedelta
-from dateutil.relativedelta import relativedelta
 from trouble.models import (TroubleUser, TroubleCategory,
                             Trouble, TroubleDateReport)
 
