@@ -15,14 +15,18 @@
 		<a href="#"><i class="fas fa-user fa-fw nav-fas"></i>MyPage</a>
 	    </li>
 	    <li>
+		<a href="{% url 'trouble:trouble_list' %}"><i class="fas fa-file-alt fa-fw nav-fas"></i>Trouble</a>
+		<!--
 		<input id="trouble-accordion" type="checkbox" class="check-unshown accordion">
 		<label for="trouble-accordion"><i class="fas fa-file-alt fa-fw nav-fas"></i>Trouble</label>
+
 		<ul>
 		    <li><a href="{% url 'trouble:trouble_list' %}">Log<i class="fas fa-caret-right fa-fw"></i></a></li>
-		    <!-- <li><a href="#">Report<i class="fas fa-caret-right fa-fw"></i></a></li> -->
+		    <li><a href="#">Report<i class="fas fa-caret-right fa-fw"></i></a></li>
 		    <li><a href="#" style="opacity: .3">Trouble User<i class="fas fa-caret-right fa-fw"></i></a></li>
 		    <li><a href="#" style="opacity: .3">Category<i class="fas fa-caret-right fa-fw"></i></a></li>
 		</ul>
+		-->
 	    </li>
 	    <li>
 		<a href="#"><i class="fas fa-users fa-fw nav-fas"></i>Users</a>

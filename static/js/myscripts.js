@@ -12,11 +12,7 @@ window.onload = function(){
     }
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-    document.getElementById("hamburger-menu").addEventListener("click", function(){
-	document.getElementById("nav-input").checked = true;
-    }, false);
-
+function trouble_page_scripts(){
     // ================== troubleアプリケーションのcolumn移動 ====================
     function move_column(col, _from, to){
 	col.classList.remove(_from);
@@ -172,8 +168,19 @@ document.addEventListener("DOMContentLoaded", function(){
 	    console.log("False!");
 	}
 
+    }, false);    
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+    document.getElementById("hamburger-menu").addEventListener("click", function(){
+	document.getElementById("nav-input").checked = true;
     }, false);
-    
+
+    var pathname = location.pathname;
+    if (pathname === "/trouble/"){
+	trouble_page_scripts();
+	console.log("!");
+    }
 
     
 }, false);
