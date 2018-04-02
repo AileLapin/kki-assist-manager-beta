@@ -1,11 +1,39 @@
 {% extends "trouble/base.html"%}
 
 {% block header %}
-<button type="button" id="hamburger-menu"><span></span></button>
-<button type="button" id="back"><i class="fas fa-arrow-left"></i></button>
+<div class="flex-center-container">
+    <button type="button" id="hamburger-menu"><span></span></button>
+    <button type="button" id="back"><i class="fas fa-arrow-left"></i></button>
+    <input type="checkbox" id="trouble_sort_input" class="check-unshown">
+    <div class="sort-accordion">
+	<label for="trouble_sort_input" class="trouble-sort-label">
+	    <div>
+		<i class="fas fa-file-alt fa-fw nav-fas fw-100"></i>
+		<span>{{ delta }}</span>
+		<i class="fas fa-angle-double-down ml-auto"></i>
+	    </div>
+	</label>
+	<ul>
+	    <li><a href="/trouble/">直近1週間</a></li>
+	    <li><a href="/trouble/?delta=thisweek">今週</a></li>
+	    <li><a href="/trouble/?delta=lastweek">先週</a></li>
+	    <li><a href="/trouble/?delta=thismonth">今月</a></li>
+	    <li><a href="/trouble/?delta=lastmonth">先月</a></li>
+	</ul>
+    </div>
+
+</div>
 {% endblock %}
 {% block sub_title %}list{% endblock %}
 {% block contents %}
+
+<!-- 
+     <input type="checkbox" id="trouble_serch_form_input" class="check-unshown">
+     <label for="trouble_search_form_input" class="trouble-search-form-open"><i class="fas fa-search-plus"></i></label>
+     <div class="trouble-search-form">
+     
+     </div>
+-->
 
 <input type="checkbox" id="trouble_form_input" class="check-unshown">
 <label for="trouble_form_input" class="trouble-form-open"><span><span></span></span></label>
@@ -220,7 +248,7 @@
 	<section class="date-report mt-20">
 	    
 	    <h1 class="mb-10">
-		<span class="fw-300 display-inline">{{ report.date.month }}月{{ report.date.day }}日/{{ report.date.year }}年</span>
+		<span class="fw-300 display-inline">{{ report.date.month }}月{{ report.date.day }}日({{ report.yobi }}) / {{ report.date.year }}年</span>
 		<span class="fw-300 display-inline ml-5">({{ report.num }})</span>
 	    </h1>
 

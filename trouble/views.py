@@ -31,9 +31,17 @@ class TroubleListView(LoginRequiredMixin, generic.TemplateView):
 
     # 列挙する期間の日付と，その日付ごとのトラブルの数をまとめたリストを渡す
     def get_context_data(self, **kwargs):
+        str_delta = {
+            'latest': '直近1週間', 'thisweek': '今週', 'lastweek': '先週',
+            'thismonth': '今月', 'lastmonth': '先月'}
+            
+        delta = self.request.GET.get(key="delta", default="latest")
         now = datetime.now()
         context = super().get_context_data(**kwargs)
-        context['reports'] = manager.get_recent_troubles()
+
+        context['yobi'] = yobi
+        context['delta'] = str_delta[delta]
+        context['reports'] = manager.get_troubles(self.request)
         context['trouble_form'] = forms.TroubleForm(initial={
             'year': now.year, 'month': now.month, 'day': now.day,
             'hour': now.hour, 'minute': now.minute})

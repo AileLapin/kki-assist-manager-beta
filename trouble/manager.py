@@ -2,7 +2,8 @@
 Trouble一覧の取得やそのソート，検索に使う．
 '''
 
-import datetime
+from datetime import datetime, date, timedelta
+from dateutil.relativedelta import relativedelta
 from trouble.models import (TroubleUser, TroubleCategory,
                             Trouble, TroubleDateReport)
 
@@ -42,16 +43,57 @@ def get_recent_troubles(length=7):
     # 直近のトラブルレポートを返す
     # 引数のlengthによって取り出す期間を設定する．
     # デフォルトは直近7日
-    date = datetime.date.today() - datetime.timedelta(days=length)  # 条件日時を取得
+    day= date.today() - timedelta(days=length)  # 条件日時を取得
     # 直近~日のReportを取り出して，日付の最新順に並べる
-    reports = TroubleDateReport.objects.filter(date__gt=date).order_by('-date')
+    reports = TroubleDateReport.objects.filter(date__gt=day).order_by('-date')
 
     # Reportの中のtroublesを発生日時順にソートしてReportオブジェクトを辞書形式に．
     # 空のtroublesリストに追加していく．
     # troubles = [{'date': ~, 'num': ~, 'troubles': Trouble-queryset}, {}, ... ,{}]
     troubles = []
+    yobi = ['月', '火', '水', '木', '金', '土', '日']
     for report in reports:
-        dic = {'date': report.date, 'num': report.num}
+        dic = {
+            'date': report.date, 'num': report.num,
+            'yobi': yobi[report.date.weekday()]}
         dic['troubles'] = report.troubles.order_by('-occur_date')
         troubles.append(dic)
     return troubles
+
+
+def get_troubles_delta(delta):
+    today = date.today()
+    s_date = today # ソートする期間の最初
+    e_date = today # 最後
+    if delta == "thisweek":
+        s_date = today - timedelta(days=today.weekday())
+    elif delta == "lastweek":
+        s_date = today - timedelta(weeks=1, days=today.weekday())
+        e_date = s_date + timedelta(days=6)
+    elif delta == "thismonth":
+        s_date = today.replace(day=1)
+    elif delta == "lastmonth":
+        e_date = today.replace(day=1) - timedelta(days=1)
+        s_date = e_date.replace(day=1)
+    else:
+        print("GET paramerter has not 'delta'!")
+
+    reports = TroubleDateReport.objects.filter(date__gte=s_date, date__lte=e_date).order_by('date')
+    
+    troubles = []
+    yobi = ['月', '火', '水', '木', '金', '土', '日']
+    for report in reports:
+        dic = {
+            'date': report.date, 'num': report.num,
+            'yobi': yobi[report.date.weekday()]}
+        dic['troubles'] = report.troubles.order_by('occur_date')
+        troubles.append(dic)
+    return troubles
+        
+
+def get_troubles(request):
+    if "delta" in request.GET:
+        delta = request.GET.get("delta")
+        return get_troubles_delta(delta)
+    else:
+        return get_recent_troubles()

@@ -752,6 +752,14 @@ padding => pt-*, pb-*, pl-*, pr-*, px-*, py-*
   height: 100%;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
 .mt-5 {
   margin-top: 5px;
 }
@@ -1906,6 +1914,80 @@ $dumy: '#fff';
   font-weight: 100;
   font-size: 1.5rem;
   line-height: 135%;
+}
+
+#trouble_sort_input ~ .sort-accordion {
+  width: 60%;
+  max-width: 400px;
+  height: 80%;
+  max-height: 50px;
+  margin: 0px 10px;
+}
+
+#trouble_sort_input ~ .sort-accordion * {
+  transition: .3s ease-in-out;
+}
+
+#trouble_sort_input ~ .sort-accordion label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #3b3b3b inset;
+  background: #474747;
+  cursor: pointer;
+}
+
+#trouble_sort_input ~ .sort-accordion label:hover {
+  background: #3b3b3b;
+}
+
+#trouble_sort_input ~ .sort-accordion label i {
+  font-size: 1.5rem;
+}
+
+#trouble_sort_input ~ .sort-accordion label div {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+#trouble_sort_input ~ .sort-accordion ul {
+  height: 0;
+  margin-top: 5px;
+  background: #4d4d4d;
+  box-shadow: 0px 0px 3px #3b3b3b inset, 0px 0px 3px rgba(0, 0, 0, 0.6);
+  border-radius: 2px;
+  opacity: 0;
+}
+
+#trouble_sort_input ~ .sort-accordion ul li {
+  height: 0;
+  border-bottom: 1px solid #424242;
+  opacity: 0;
+}
+
+#trouble_sort_input ~ .sort-accordion ul a {
+  display: none;
+  height: 0;
+  cursor: pointer;
+}
+
+#trouble_sort_input:checked ~ .sort-accordion ul, #trouble_sort_input:checked ~ .sort-accordion li, #trouble_sort_input:checked ~ .sort-accordion a {
+  height: auto;
+  opacity: 1;
+}
+
+#trouble_sort_input:checked ~ .sort-accordion a {
+  display: block;
+  padding: 13px 0px 13px 40px;
+}
+
+#trouble_sort_input:checked ~ .sort-accordion a:hover {
+  background: #3b3b3b;
 }
 
 #trouble_form_input ~ label.trouble-form-open {
