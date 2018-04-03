@@ -179,7 +179,6 @@ document.addEventListener("DOMContentLoaded", function(){
     var pathname = location.pathname;
     if (pathname === "/trouble/"){
 	trouble_page_scripts();
-	console.log("!");
     }
 
     
