@@ -42,7 +42,7 @@ def get_recent_troubles(length=7):
     # 直近のトラブルレポートを返す
     # 引数のlengthによって取り出す期間を設定する．
     # デフォルトは直近7日
-    day= date.today() - timedelta(days=length)  # 条件日時を取得
+    day = date.today() - timedelta(days=length)  # 条件日時を取得
     # 直近~日のReportを取り出して，日付の最新順に並べる
     reports = TroubleDateReport.objects.filter(date__gt=day).order_by('-date')
 
